@@ -1,5 +1,6 @@
 package bo.felipe.app.controller;
 
+import bo.felipe.app.model.Venta;
 import bo.felipe.app.model.VentaRequest;
 import bo.felipe.app.model.VentaResponse;
 import bo.felipe.app.service.VentaService;
