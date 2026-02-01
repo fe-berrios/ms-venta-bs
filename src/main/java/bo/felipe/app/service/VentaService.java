@@ -2,6 +2,7 @@ package bo.felipe.app.service;
 
 import bo.felipe.app.client.IAmbassadorC;
 import bo.felipe.app.client.IDatabaseC;
+import bo.felipe.app.model.StatusResponse;
 import bo.felipe.app.model.Venta;
 import bo.felipe.app.model.VentaRequest;
 import bo.felipe.app.model.VentaResponse;
@@ -32,6 +33,10 @@ public class VentaService {
         iDatabaseC.addVenta(ventaDatabase);
 
         return iAmbassadorC.addVenta(venta);
+    }
+
+    public StatusResponse statusVenta(String token_ws){
+        return iAmbassadorC.statusVenta(token_ws);
     }
 
 }
