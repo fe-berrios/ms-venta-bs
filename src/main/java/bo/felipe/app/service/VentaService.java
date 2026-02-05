@@ -8,6 +8,7 @@ import bo.felipe.app.model.VentaRequest;
 import bo.felipe.app.model.VentaResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Service
 public class VentaService {
@@ -18,6 +19,7 @@ public class VentaService {
     @Autowired
     IDatabaseC iDatabaseC;
 
+    // Añadir venta
     public VentaResponse addVenta(VentaRequest venta){
 
         VentaResponse ambassadorResponse = iAmbassadorC.addVenta(venta);
@@ -35,8 +37,25 @@ public class VentaService {
         return iAmbassadorC.addVenta(venta);
     }
 
-    public StatusResponse statusVenta(String token_ws){
-        return iAmbassadorC.statusVenta(token_ws);
+    // Read Venta
+    public Venta getVentaByBO(@PathVariable("buy_order")String buy_order){
+        return iDatabaseC.getVenta(buy_order);
     }
+
+    // Update Venta
+    public Venta updateVenta(String buy_order, Venta venta){
+        return iDatabaseC.updateVenta(buy_order, venta);
+    }
+
+    // Delete Venta
+    public void deleteVenta(@PathVariable("id")Long id){
+        iDatabaseC.deleteVenta(id);
+    }
+
+    // Confirmar Venta
+    public StatusResponse confirmVenta(String token_ws){
+        return iAmbassadorC.confirmVenta(token_ws);
+    }
+
 
 }

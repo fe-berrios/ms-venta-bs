@@ -24,5 +24,10 @@ public class Venta {
     private String token;
     @JsonProperty("url")
     private String url;
+    @JsonProperty("status")
+    private String status;
+    @JsonProperty("authorization_code")
+    private String authorizationCode;
+
 
 }

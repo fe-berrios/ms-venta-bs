@@ -16,6 +16,6 @@ public interface IAmbassadorC {
     VentaResponse addVenta(@RequestBody VentaRequest venta);
 
     @PutMapping(path = "/confirm/venta/{token_ws}")
-    StatusResponse statusVenta(@PathVariable("token_ws")String token_ws);
+    StatusResponse confirmVenta(@PathVariable("token_ws")String token_ws);
 
 }
